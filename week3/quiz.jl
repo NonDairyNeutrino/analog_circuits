@@ -1,0 +1,26 @@
+using LinearAlgebra
+
+const r0 :: Float64 = 4.0
+const r  :: Vector{Float64} = Float64[r0, 1.5 * r0, 3.0 * r0, r0]
+
+const i0 :: Float64 = 6.0
+const iL :: Float64 = 3.0 * i0
+const iR :: Float64 = i0
+
+const dV0 :: Float64 = 9
+const dV  :: Float64 = dV0
+
+const mat :: Matrix{Float64} = Float64[
+    r[1] 0 -r[1] 0 1 0;
+    0 (r[2] + r[3]) -r[3] 0 0 0;
+    -r[1] -r[3] (r[1] + r[3] + r[4]) -r[4] 0 0;
+    0 0 -r[4] r[4] 0 1;
+    1 0 0 0 0 0;
+    0 0 0 -1 0 0
+]
+
+#actual_sol = Float64[18.0, 1.833, 3.5, -6, 
+
+const sol :: Vector{Float64} = Float64[0, -dV, 0, 0, iL, iR]
+
+display(mat \ sol)
